@@ -1,0 +1,16 @@
+# Ignore virtual environment directories:
+p38Env/
+myEnv/
+
+# Ignore compiled bytecode versions:
+__pycache__/
+
+# Ignore compiled files
+*.Identifier
+
+# Ignore picture files
+*.jpg
+
+# Ignore this files
+Kitty.mp4
+*cut2.mp4

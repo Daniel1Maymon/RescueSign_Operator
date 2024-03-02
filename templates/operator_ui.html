@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Operator Interface!</title>
+
+    <style>
+
+      * {
+        font-family: Arial;
+      }
+      .options {
+        display: flex;
+        flex-direction: column;
+      }
+      .selected {
+          color: red;
+      }     
+    </style>
+
+
+
+  </head>
+  <body>
+    <h1 >Operator Interface</h1>
+    <button id="openSocketButton" onclick="openSocket()">Open Socket With The Model</button>
+
+    <div id="waiting-msg">
+      <h3> Waiting for video to be received... </h3>
+    </div>
+    <div id="image-container">
+      <img id="current-image" alt="Image" />
+      <div id="nav-buttons">
+        <button id="prev-button">Previous</button>
+        <button id="next-button">Next</button>
+      </div>
+    </div>
+
+    
+    <div id="options-container" >
+      <h2>Options for Operator Response</h2>
+      <!-- <button onclick="operatorResponse('Turn on siren')">Turn on siren</button>
+      <button onclick="operatorResponse('Keep moving')">Keep moving</button> -->
+      <button id="TurnSiren">Turn on siren</button>
+      <button id="keepMoving">Keep moving</button>
+    </div>
+
+
+
+
+    <script src="{{ url_for('static', filename='operator_script.js')}}"></script>
+
+  </body>   
+</html>
