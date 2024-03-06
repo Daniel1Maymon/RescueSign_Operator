@@ -63,7 +63,7 @@ def create_socket_connection():
 @app.route('/delete_oldest_frames')
 def delete_oldest_frames():
     # First, delete all the oldest frames
-    delete_files_in_directory(folder_name="Rescue_Sign_SERVER_proj/static/operator-server-frames")
+    delete_files_in_directory(folder_name=OperatorSocket.path_out)
 
     return jsonify("{'message': 'Oldest frames have been deleted'}")
 

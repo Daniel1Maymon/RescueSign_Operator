@@ -72,7 +72,11 @@ class OperatorSocket:
                 return
 
             decoded_frame = cv2.imdecode(encoded_frame, cv2.IMREAD_COLOR)
-            text = "-".join(frame_id.split("-")[3:])
+            date, frame_index = frame_id.rsplit("-", maxsplit=1)
+            date = date.split("-")[3:]
+            date = ":".join(date)
+            text = date + "-" + frame_index
+            print(f"text = {text}")
             frame = cv2.putText(img=decoded_frame,
                                 text=text, 
                                 org=(10, 40),

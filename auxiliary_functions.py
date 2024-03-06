@@ -24,30 +24,26 @@ def read_all_frames():
 
 def delete_files_in_directory(folder_name):
     print("\n\n:: delete_files_in_directory() :: START\n\n")
+    
     # Get the full path of the current file
     project_path = 'C:\\Users\\project25\\RescueSign'
-    # file_path = os.path.abspath(__file__)
-    # print(f"file_path={file_path}")
-
-    # WHAT Model NEED: C:\\Users\\project25\\RescueSign\\PendingImages
-    # WHAT OperatorUI NEED: C:\Users\project25\RescueSign\Rescue_Sign_SERVER_proj/static/operator-server-frames/
 
     # Get the directory name of the current file
     # dir_name = os.path.dirname(file_path)
     # directory = f'{dir_name}/static/operator-server-frames/'
     # print(f"directory={directory}")
 
-    directory = project_path + "\\" + folder_name
-    print(f":::: delete files from directory={directory}")
+    # directory = project_path + "\\" + folder_name
+    # print(f":::: delete files from directory={directory}")
     # Get the list of files in the directory
 
-    if 'C:\\Users\\project25\\RescueSign' != directory:
-        files = os.listdir(directory)
+    if "frames" in folder_name:
+        files = os.listdir(folder_name)
         # print(f"files={files}")
         
         # Iterate over the files and delete each one
         for file_name in files:
-            file_path = os.path.join(directory, file_name)
+            file_path = os.path.join(folder_name, file_name)
             if os.path.isfile(file_path):
                 os.remove(file_path)
 
