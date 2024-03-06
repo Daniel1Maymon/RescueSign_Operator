@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Operator Interface!</title>
 
     <style>
-
       * {
         font-family: Arial;
       }
+
       .options {
         display: flex;
         flex-direction: column;
       }
+
       .selected {
-          color: red;
-      }     
+        color: red;
+      }
     </style>
 
 
 
   </head>
+
   <body>
-    <h1 >Operator Interface</h1>
+    <h1>Operator Interface</h1>
     <button id="openSocketButton" onclick="openSocket()">Open Socket With The Model</button>
 
     <div id="waiting-msg">
@@ -35,8 +38,7 @@
       </div>
     </div>
 
-    
-    <div id="options-container" >
+    <div id="options-container">
       <h2>Options for Operator Response</h2>
       <!-- <button onclick="operatorResponse('Turn on siren')">Turn on siren</button>
       <button onclick="operatorResponse('Keep moving')">Keep moving</button> -->
@@ -49,5 +51,6 @@
 
     <script src="{{ url_for('static', filename='operator_script.js')}}"></script>
 
-  </body>   
+  </body>
+
 </html>

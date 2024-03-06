@@ -20,8 +20,10 @@ class OperatorSocket:
 
         # Get the directory name of the current file
         self.dir_name = os.path.dirname(self.file_path)
-        # path_out = f'{dir_name}/operator-server-frames/'
-        self.path_out = f'{self.dir_name}/static/operator-server-frames'
+        
+        self.path_out = f'{self.dir_name}/static/frames'
+        # self.path_out = f'{self.dir_name}/frames'
+        
 
         # return path_out
 
@@ -77,10 +79,10 @@ class OperatorSocket:
                                 2)
             self.set_dir_path() # self.path_out
             # self.full_path = os.path.join(self.path_out, frame_id)
-            full_frame_location = f'{self.path_out}/{frame_id}.jpg'
-            cv2.imwrite(full_frame_location, frame)
+            frame_dest = f'{self.path_out}/{frame_id}.jpg'
+            cv2.imwrite(frame_dest, frame)
 
-            print(f"full_frame_location = {full_frame_location}")
+            print(f"full_frame_location = {frame_dest}")
             self.frames.append(frame)
             print("::: finish get_frames_from_model_server()")
 

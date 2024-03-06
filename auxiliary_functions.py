@@ -1,40 +1,25 @@
 import os
 # from model_server_socket import create_socket_and_bind_it, send_video_frames
 # from operator_server_socket import create_socket_and_bind_it_to_model
-import cv2
+# import cv2
 
 def read_all_frames():
-    frames = []
-    # Get the full path of the current file
-    # file_path = os.path.abspath(__file__)
-    # print(f"file_path = {file_path}")
-
-    # Get the directory name of the current file
-    # dir_name = os.path.dirname(file_path)
-    # directory = "\\static\\operator-server-frames\\"
-    # directory = dir_name + directory
-    # print(f'directory = {directory}')
-    # print(f"os.getcwd()={os.getcwd()}")
-    frames_path = os.getcwd() + "/frames/"
+    frames_path = os.path.dirname(os.path.abspath(__file__)) + "/static/frames/"
     
-
     # Get the list of files in the directory
     file_list = os.listdir(frames_path)
     print(f"file_list = {file_list}")
 
     # Filter out JPEG files
-    jpeg_files = [file for file in file_list if file.endswith('.jpg')]
-    jpeg_files.sort()
-    jpeg_files = [frames_path + file_name for file_name in jpeg_files]
-
-    # Read each JPEG file
-    # for file_name in jpeg_files:
-    #     file_path = os.path.join(directory, file_name)
-    #     file_name = file_path
-        # frame = cv2.imread(file_path)
-        # frames.append(frame)
+    frame_list = [file for file in file_list if file.endswith('.jpg')]
+    frame_list.sort()
     
-    return jpeg_files
+    frames_path = "/static/frames/"
+    
+    frame_list = [frames_path + file_name for file_name in frame_list]
+    print(f"frame_list = {frame_list}")
+    
+    return frame_list
 
 
 def delete_files_in_directory(folder_name):
