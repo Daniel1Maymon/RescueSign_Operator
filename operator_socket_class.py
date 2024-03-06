@@ -11,6 +11,7 @@ class OperatorSocket:
     PORT = 4001  # the port number used by the model server
     fps, st, frames_to_count, cnt = (0, 0, 20, 0)
     frames = []
+    path_out = f'{os.path.dirname(os.path.abspath(__file__))}/static/frames'
 
     # def __init__(self):
 
@@ -71,12 +72,14 @@ class OperatorSocket:
                 return
 
             decoded_frame = cv2.imdecode(encoded_frame, cv2.IMREAD_COLOR)
-            frame = cv2.putText(decoded_frame, ":".join(frame_id.split("-")[3:]),
-                                (10, 40),
-                                cv2.FONT_HERSHEY_SIMPLEX,
-                                0.7,
-                                (0, 0, 255),
-                                2)
+            text = "-".join(frame_id.split("-")[3:])
+            frame = cv2.putText(img=decoded_frame,
+                                text=text, 
+                                org=(10, 40),
+                                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                fontScale=0.7,
+                                color=(0, 0, 255),
+                                thickness=2)
             self.set_dir_path() # self.path_out
             # self.full_path = os.path.join(self.path_out, frame_id)
             frame_dest = f'{self.path_out}/{frame_id}.jpg'
